@@ -1,0 +1,17 @@
+{
+  "name": "easy_boilerplate",
+  "version": "0.1",
+  "description": "a starting point for using webpack, pug, stylus with webpack",
+  "license": "MIT",
+  "repository": "https://github.com/nikitos/easy_boilerplate",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "webpack": "^3.5.4",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
