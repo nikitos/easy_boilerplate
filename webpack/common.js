@@ -17,7 +17,6 @@ module.exports = {
   context: srcPath,
   entry: {
     app: './scripts/app.js',
-	css: './styles/index.styl'
   },
   output: {
       path: distPath,
