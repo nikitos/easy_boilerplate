@@ -4,10 +4,10 @@ const path = require('path');
 const srcPath  = path.join(__dirname, '../src');
 const distPath = path.join(__dirname, '../dist');
 
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   node: {
@@ -17,6 +17,7 @@ module.exports = {
   context: srcPath,
   entry: {
     app: './scripts/app.js',
+	css: './styles/index.styl'
   },
   output: {
       path: distPath,
@@ -87,6 +88,10 @@ module.exports = {
       minChunks: function (module) {
         return module.context && module.context.indexOf('node_modules') !== -1;
       }
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+	  openAnalyzer: false
     }),
     new HtmlWebpackPlugin({
       template: 'templates/index.pug'
