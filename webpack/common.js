@@ -29,6 +29,20 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use:[
+          {
+            loader: 'eslint-loader',
+            options: {
+              emitWarning: true,
+              configFile: '.eslintrc'
+            }
+          }
+        ]
+      },
+      {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src/scripts'),
         use: [
@@ -38,14 +52,6 @@ module.exports = {
               presets: ['es2015', 'es2016'],
               cacheDirectory: true,
               plugins: ['transform-runtime']
-            }
-          },
-          {
-            loader: 'eslint-loader',
-            options: {
-              cache: true,
-              emitWarning: true,
-              configFile: '.eslintrc'
             }
           }
         ]
